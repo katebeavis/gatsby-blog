@@ -1,8 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout/layout"
-import { BlogCard, Date, Divider, Tag, Header3, SLink } from "../assets/styles"
+import Layout from "../components/Layout/layout"
+import {
+  BlogCard,
+  Date,
+  Divider,
+  Tag,
+  Header3,
+  SLink,
+} from "../assets/styles/index.style"
 
 export default ({ data }) => {
   return (

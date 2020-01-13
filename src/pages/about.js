@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Header from "../components/header"
-import Layout from "../components/layout/layout"
+import Layout from "../components/Layout/layout"
 
 export default ({ data }) => (
   <Layout>
