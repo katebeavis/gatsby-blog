@@ -1,41 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import styled from "styled-components"
+import { graphql } from "gatsby"
 
-const Header3 = styled.h3`
-  font-size: 1.6875rem;
-  line-height: 2.4375rem;
-  font-weight: 600;
-`
-
-const SLink = styled(Link)`
-  text-decoration: none;
-  color: #222;
-  &:hover {
-    border-bottom: 1px solid #222;
-  }
-`
-
-const Date = styled.time`
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-`
-const Tag = styled.span`
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #f7a046;
-`
-
-const Divider = styled.span`
-  margin: 0 0.3125rem;
-`
-
-const BlogCard = styled.div`
-  margin-bottom: 1.25em;
-`
+import Layout from "../components/layout/layout"
+import { BlogCard, Date, Divider, Tag, Header3, SLink } from "./index.style"
 
 export default ({ data }) => {
   return (
