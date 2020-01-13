@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
-import { BlogCard, Date, Divider, Tag, Header3, SLink } from "./index.style"
+import { BlogCard, Date, Divider, Tag, Header3, SLink } from "../assets/styles"
 
 export default ({ data }) => {
   return (
