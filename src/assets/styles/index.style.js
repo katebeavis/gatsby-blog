@@ -1,5 +1,18 @@
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import { Link } from "gatsby"
+
+export const theme = {
+  black: "#222",
+  offWhite: "#EDEDED",
+}
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    background: ${props => (props.theme === "light" ? theme : theme.black)};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: ${props => (props.theme === "light" ? theme.black : theme.offWhite)};
+  }
+`
 
 export const Header3 = styled.h3`
   font-size: 1.6875rem;

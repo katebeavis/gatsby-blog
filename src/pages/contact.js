@@ -1,7 +1,7 @@
 import React from "react"
 
 import Header from "../components/header"
-import Layout from "../components/Layout/layout"
+import Layout from "../components/Layout/Layout"
 
 export default () => (
   <Layout>

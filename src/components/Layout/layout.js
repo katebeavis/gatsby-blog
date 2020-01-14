@@ -1,15 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import {
-  GlobalStyle,
-  Container,
-  Nav,
-  NavLink,
-  HeaderSection,
-  Title,
-  SLink,
-} from "./layout.style"
+import Nav from "../Nav/Nav"
+import { Container, HeaderSection, Title, SLink } from "./Layout.style"
+import { GlobalStyle } from "../../assets/styles/index.style"
 
 export default ({ children }) => {
   const data = useStaticQuery(
@@ -27,17 +21,13 @@ export default ({ children }) => {
     <>
       <GlobalStyle theme="light" />
       <Container>
-        <Nav>
-          <NavLink to={`/about/`}>About</NavLink>
-          <NavLink to={`/contact/`}>Contact</NavLink>
-        </Nav>
+        <Nav />
         <HeaderSection>
           <Title>
             <SLink to={`/`}>{data.site.siteMetadata.title}</SLink>
           </Title>
         </HeaderSection>
-
-        {children}
+        <main>{children}</main>
       </Container>
     </>
   )
