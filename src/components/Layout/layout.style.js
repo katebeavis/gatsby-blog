@@ -54,20 +54,3 @@ export const NavLink = styled(Link)`
     border-bottom: 1px solid #222;
   }
 `
-
-export const Image = styled.img`
-  margin-right: 0.875rem;
-  margin-bottom: 0px;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-`
-
-export const InfoContainer = styled.aside`
-  display: flex;
-  margin-bottom: 3rem;
-`
-
-export const Info = styled.p`
-  max-width: 400px;
-`

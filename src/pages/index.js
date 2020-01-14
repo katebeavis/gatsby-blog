@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/layout"
+import Info from "../components/Info/Info"
 import {
   BlogCard,
   Date,
@@ -14,6 +15,7 @@ import {
 export default ({ data }) => {
   return (
     <Layout>
+      <Info />
       <div>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <BlogCard key={node.id}>
