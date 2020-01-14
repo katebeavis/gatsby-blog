@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import { Link } from "gatsby"
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-import { SMALL } from "../../constants/breakpoints"
+import { SMALL } from '../../constants/breakpoints';
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -10,15 +10,15 @@ export const Container = styled.div`
   @media screen and (min-width: ${SMALL}) {
     padding: 0;
   }
-`
+`;
 
 export const HeaderSection = styled.div`
   margin-bottom: 2em;
-`
+`;
 
 export const Title = styled.h1`
   font-size: 4em;
-`
+`;
 
 export const SLink = styled(Link)`
   text-decoration: none;
@@ -26,4 +26,4 @@ export const SLink = styled(Link)`
   &:hover {
     border-bottom: 1px solid #222;
   }
-`
+`;

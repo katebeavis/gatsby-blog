@@ -1,17 +1,17 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Header from "../components/header"
-import Layout from "../components/Layout/Layout"
+import Header from '../components/Header/Header';
+import Layout from '../components/Layout/Layout';
 
-export default ({ data }) => (
+const About = ({ data }: any) => (
   <Layout>
     <div style={{ color: `teal` }}>
       <Header headerText={`About ${data.site.siteMetadata.title}`} />
       <p>Such wow. Very React.</p>
     </div>
   </Layout>
-)
+);
 
 export const query = graphql`
   query {
@@ -21,4 +21,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
+
+export default About;
