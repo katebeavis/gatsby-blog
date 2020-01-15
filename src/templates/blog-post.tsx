@@ -1,5 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+
+import Header from '../components/Header/Header';
 import Layout from '../components/Layout/Layout';
 
 const BlogPost = ({ data }: any) => {
@@ -7,7 +9,7 @@ const BlogPost = ({ data }: any) => {
   return (
     <Layout>
       <div>
-        <h2>{post.frontmatter.title}</h2>
+        <Header headerText={post.frontmatter.title} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
