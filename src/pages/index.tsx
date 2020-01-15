@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout/Layout';
-import Info from '../components/Info/Info';
+import Bio from '../components/Bio/Bio';
 import {
   BlogCard,
   Date,
@@ -14,26 +14,24 @@ import {
 
 const Pages = ({ data }: any) => (
   <Layout>
-    <Info />
-    <div>
-      {data.allMarkdownRemark.edges.map(({ node }: any) => (
-        <BlogCard key={node.id}>
-          <Date>{node.frontmatter.date}</Date>
-          <Divider />
-          {node.frontmatter.tags.map((tag: string, index: number) => (
-            <span key={index}>
-              <Tag>{tag}</Tag>
-              <Divider />
-            </span>
-          ))}
-          <Header3>
-            <SLink to={node.fields.slug}>{node.frontmatter.title}</SLink>
-          </Header3>
-          <p>{node.excerpt}</p>
-          <SLink to={node.fields.slug}>Read</SLink>
-        </BlogCard>
-      ))}
-    </div>
+    <Bio />
+    {data.allMarkdownRemark.edges.map(({ node }: any) => (
+      <BlogCard key={node.id}>
+        <Date>{node.frontmatter.date}</Date>
+        <Divider />
+        {node.frontmatter.tags.map((tag: string, index: number) => (
+          <span key={index}>
+            <Tag>{tag}</Tag>
+            <Divider />
+          </span>
+        ))}
+        <Header3>
+          <SLink to={node.fields.slug}>{node.frontmatter.title}</SLink>
+        </Header3>
+        <p>{node.excerpt}</p>
+        <SLink to={node.fields.slug}>Read</SLink>
+      </BlogCard>
+    ))}
   </Layout>
 );
 

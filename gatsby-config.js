@@ -19,6 +19,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -35,6 +36,18 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-emoji-favicon',
+      options: {
+        emoji: '🦊'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
       }
     }
   ]

@@ -8,11 +8,11 @@ export const Image = styled.img`
   border-radius: 50%;
 `;
 
-export const InfoContainer = styled.aside`
+export const BioContainer = styled.aside`
   display: flex;
   margin-bottom: 3rem;
 `;
 
-export const InfoText = styled.p`
+export const BioText = styled.p`
   max-width: 400px;
 `;

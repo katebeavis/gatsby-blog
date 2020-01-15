@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import { theme } from '../../assets/styles/index.style';
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.nav`
   margin-bottom: 2em;
 `;
 export const NavLink = styled(Link)`
