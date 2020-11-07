@@ -14,7 +14,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
+    "@emotion/core": "^10.1.1",
     "@types/react": "^16.9.17",
     "@types/react-helmet": "^5.0.15",
     "@types/styled-components": "^4.4.2",
@@ -30,8 +30,9 @@
     "gatsby": "^2.25.3",
     "gatsby-cli": "^2.12.117",
     "gatsby-plugin-emoji-favicon": "^1.4.1",
-    "gatsby-plugin-emotion": "^4.1.21",
+    "gatsby-plugin-emotion": "^4.3.15",
     "gatsby-plugin-eslint": "^2.0.8",
+    "gatsby-plugin-postcss": "^3.0.4",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-styled-components": "^3.1.17",
     "gatsby-plugin-tslint": "^0.0.2",
@@ -44,6 +45,7 @@
     "react-helmet": "^6.1.0",
     "react-typography": "^0.16.19",
     "styled-components": "^4.4.1",
+    "tailwindcss": "^1.9.6",
     "tslint": "^5.20.1",
     "tslint-loader": "^3.5.4",
     "typescript": "^4.0.5",

@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { theme } from '../../assets/styles/index.style';
 
 const NavContainer = styled.nav`
-  margin-bottom: 2em;
+  /* margin-bottom: 2em; */
 `;
 
 const NavLink = styled(Link)`
@@ -19,7 +19,7 @@ const NavLink = styled(Link)`
 `;
 
 const Nav = () => (
-  <NavContainer>
+  <NavContainer className='mt-4'>
     <NavLink to='/about/'>About</NavLink>
     <NavLink to='/contact/'>Contact</NavLink>
   </NavContainer>

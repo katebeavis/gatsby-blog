@@ -4,22 +4,25 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const tailwind = require('tailwindcss');
+
 module.exports = {
   siteMetadata: {
-    title: `Kate Beavis`
+    title: `Kate Beavis`,
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`
-      }
+        path: `${__dirname}/src/`,
+      },
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-postcss`,
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -28,27 +31,33 @@ module.exports = {
         stages: ['develop'],
         options: {
           emitWarning: true,
-          failOnError: false
-        }
-      }
+          failOnError: false,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`
-      }
+        pathToConfigModule: `src/utils/typography`,
+      },
     },
     {
       resolve: 'gatsby-plugin-emoji-favicon',
       options: {
-        emoji: '🦊'
-      }
+        emoji: '🦊',
+      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
-      }
-    }
-  ]
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [tailwind('./tailwind.config.js')],
+      },
+    },
+  ],
 };
