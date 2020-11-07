@@ -4,24 +4,28 @@ import { Link } from 'gatsby';
 
 import { theme } from '../../assets/styles/index.style';
 
-const NavContainer = styled.nav`
-  /* margin-bottom: 2em; */
-`;
+const NavContainer = styled.nav``;
 
 const NavLink = styled(Link)`
   float: right;
-  margin-right: 1em;
   text-decoration: none;
-  color: ${theme.black};
+  color: ${theme.grey};
   &:hover {
-    border-bottom: 1px solid ${theme.black};
+    border-bottom: 1px solid ${theme.grey};
   }
 `;
 
 const Nav = () => (
-  <NavContainer className='mt-4'>
-    <NavLink to='/about/'>About</NavLink>
-    <NavLink to='/contact/'>Contact</NavLink>
+  <NavContainer className='my-4'>
+    <NavLink className='mr-4' to='/about/'>
+      About
+    </NavLink>
+    <NavLink className='mr-4' to='/contact/'>
+      Contact
+    </NavLink>
+    <NavLink className='mr-4' to='/garden/'>
+      Garden
+    </NavLink>
   </NavContainer>
 );
 

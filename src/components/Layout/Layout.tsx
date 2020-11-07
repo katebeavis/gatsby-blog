@@ -8,6 +8,7 @@ import { SMALL } from '../../constants/breakpoints';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
+import Heading from '../Heading/Heading';
 
 const Main = styled.main`
   flex-grow: 1;
@@ -15,8 +16,7 @@ const Main = styled.main`
 
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 2em;
+  max-width: 1024px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -26,20 +26,14 @@ const Container = styled.div`
   }
 `;
 
-const HeaderSection = styled.div`
-  margin-bottom: 2em;
-`;
-
 const Title = styled.h1`
   font-size: 4em;
 `;
 
 const SLink = styled(Link)`
   text-decoration: none;
-  color: ${theme.black};
-  &:hover {
-    border-bottom: 1px solid ${theme.black};
-  }
+  color: ${theme.greyDark};
+  font-weight: 700;
 `;
 
 const Layout = ({ children }: any) => {
@@ -65,12 +59,14 @@ const Layout = ({ children }: any) => {
       <GlobalStyle theme='light' />
       <Container>
         <Nav />
-        <HeaderSection>
-          <Title>
-            <SLink to='/'>{data.site.siteMetadata.title}</SLink>
-          </Title>
-        </HeaderSection>
-        <Main>{children}</Main>
+        <Main className='mt-8'>
+          <header className='my-8'>
+            <Heading as='h1'>
+              <SLink to='/'>{data.site.siteMetadata.title}</SLink>
+            </Heading>
+          </header>
+          {children}
+        </Main>
         <Footer />
       </Container>
     </>
