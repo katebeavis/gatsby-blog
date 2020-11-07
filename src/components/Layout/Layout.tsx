@@ -26,10 +26,6 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.h1`
-  font-size: 4em;
-`;
-
 const SLink = styled(Link)`
   text-decoration: none;
   color: ${theme.greyDark};

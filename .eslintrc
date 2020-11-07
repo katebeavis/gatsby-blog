@@ -34,11 +34,13 @@
       "WithStatement"
     ],
     "no-unused-vars": [
-      1,
+      "error",
       {
-        "ignoreSiblings": true,
-        "argsIgnorePattern": "res|next|^err"
-      }
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true, // to be able to omit some props when destructuring
+        "varsIgnorePattern": "component", // "component" is used for testing and it's used for testing
+      },
     ],
     "prefer-const": [
       "error",
