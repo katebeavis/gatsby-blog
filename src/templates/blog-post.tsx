@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Header from '../components/Header/Header';
 import Layout from '../components/Layout/Layout';
+import { Date } from '../assets/styles/index.style';
 
 const BlogPost = ({ data }: any) => {
   const post = data.markdownRemark;
@@ -10,6 +11,10 @@ const BlogPost = ({ data }: any) => {
     <Layout>
       <div>
         <Header headerText={post.frontmatter.title} />
+        <p>{post.frontmatter.excerpt}</p>
+        <Date>
+          {post.frontmatter.date} {post.frontmatter.readTime}
+        </Date>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
@@ -22,6 +27,9 @@ export const query = graphql`
       html
       frontmatter {
         title
+        date(formatString: "MMMM YYYY")
+        excerpt
+        readTime
       }
     }
   }

@@ -9,7 +9,7 @@ import {
   Divider,
   Tag,
   Header3,
-  SLink
+  SLink,
 } from '../assets/styles/index.style';
 
 const Pages = ({ data }: any) => (
@@ -26,7 +26,7 @@ const Pages = ({ data }: any) => (
           </span>
         ))}
         <Header3>
-          <SLink to={node.fields.slug}>{node.frontmatter.title}</SLink>
+          <SLink to={node.fields.slug}>{node.frontmatter.title} la</SLink>
         </Header3>
         <p>{node.excerpt}</p>
         <SLink to={node.fields.slug}>Read</SLink>
