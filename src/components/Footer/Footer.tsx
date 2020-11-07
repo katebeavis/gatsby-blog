@@ -1,6 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import { FooterContainer, FooterText } from './Footer.style';
+const FooterContainer = styled.footer`
+  text-align: center;
+`;
+
+const FooterText = styled.p`
+  font-size: 0.75em;
+`;
 
 const Footer = () => (
   <FooterContainer>

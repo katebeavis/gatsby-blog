@@ -1,6 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import { BioContainer, Image, BioText } from './Bio.style';
+const Image = styled.img`
+  margin-right: 0.875rem;
+  margin-bottom: 0px;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+`;
+
+const BioContainer = styled.aside`
+  display: flex;
+  margin-bottom: 3rem;
+`;
+
+const BioText = styled.p`
+  max-width: 400px;
+`;
 
 const Bio = () => (
   <BioContainer>

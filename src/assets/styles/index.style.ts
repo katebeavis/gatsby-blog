@@ -2,15 +2,16 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { Link } from 'gatsby';
 
 export const theme = {
-  black: '#222',
-  offWhite: '#EDEDED'
+  black: '#2C3236',
+  offWhite: '#EDEDED',
 };
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background: ${props => (props.theme === 'light' ? theme : theme.black)};
+    background: ${(props) => (props.theme === 'light' ? theme : theme.black)};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    color: ${props => (props.theme === 'light' ? theme.black : theme.offWhite)};
+    color: ${(props) =>
+      props.theme === 'light' ? theme.black : theme.offWhite};
   }
 `;
 
@@ -22,9 +23,9 @@ export const Header3 = styled.h3`
 
 export const SLink = styled(Link)`
   text-decoration: none;
-  color: #222;
+  color: ${theme.black};
   &:hover {
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid ${theme.black};
   }
 `;
 

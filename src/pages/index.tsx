@@ -26,7 +26,7 @@ const Pages = ({ data }: any) => (
           </span>
         ))}
         <Header3>
-          <SLink to={node.fields.slug}>{node.frontmatter.title} la</SLink>
+          <SLink to={node.fields.slug}>{node.frontmatter.title}</SLink>
         </Header3>
         <p>{node.excerpt}</p>
         <SLink to={node.fields.slug}>Read</SLink>
