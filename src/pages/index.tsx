@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Date, Divider, Tag, SLink, theme } from '../assets/styles/index.style';
+import { Date, Divider, Tag, SLink } from '../assets/styles/index.style';
 
 import Layout from '../components/Layout/Layout';
 import Bio from '../components/Bio/Bio';
@@ -21,7 +21,7 @@ const Pages = ({ data }: any) => (
             <Divider />
           </span>
         ))}
-        <Heading as='h4' className='my-1' color={theme.grey}>
+        <Heading as='h4' className='my-1'>
           {node.frontmatter.title}
         </Heading>
         <Text>{node.excerpt}</Text>

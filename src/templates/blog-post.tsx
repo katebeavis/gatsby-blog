@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Date, theme } from '../assets/styles/index.style';
+import { Date } from '../assets/styles/index.style';
 
 import Heading from '../components/Heading/Heading';
 import Layout from '../components/Layout/Layout';
@@ -11,9 +11,7 @@ const BlogPost = ({ data }: any) => {
   return (
     <Layout>
       <div>
-        <Heading as='h3' color={theme.grey}>
-          {post.frontmatter.title}
-        </Heading>
+        <Heading as='h3'>{post.frontmatter.title}</Heading>
         <p>{post.frontmatter.excerpt}</p>
         <Date>
           {post.frontmatter.date} {post.frontmatter.readTime}

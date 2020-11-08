@@ -20,7 +20,7 @@ export interface StyledHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
    */
   weight?: 'thin' | 'extraLight' | 'light' | 'regular' | 'bold' | 'semiBold';
   /**
-   * @default `colors.greyDarkest`
+   * @default `regular`
    */
   color?: string;
   /**
@@ -52,7 +52,7 @@ const Heading = styled.h1<StyledHeadingProps>`
       letter-spacing: ${letterSpacingMap[tag]};
     `;
   }};
-  color: ${({ color = theme.greyDark }) => color};
+  color: ${({ as }) => (as === 'h1' ? theme.greyDark : theme.grey)};
   display: ${({ as }) => (as === 'span' ? 'block' : undefined)};
   text-align: ${({ align = 'inherit' }) => align};
   font-family: ${({ as }) =>

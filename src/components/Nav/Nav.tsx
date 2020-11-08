@@ -22,9 +22,6 @@ const Nav = () => (
     <NavLink className='mr-4' to='/about/'>
       About
     </NavLink>
-    <NavLink className='mr-4' to='/contact/'>
-      Contact
-    </NavLink>
     <NavLink className='mr-4' to='/garden/'>
       Garden
     </NavLink>

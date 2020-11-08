@@ -10,7 +10,7 @@ export interface TextProps extends HTMLAttributes<HTMLSpanElement> {
    */
   weight?: 'thin' | 'extraLight' | 'light' | 'regular' | 'bold' | 'semiBold';
   /**
-   * @default 'body'
+   * @default 'regular'
    */
   size?: string;
   /**
@@ -26,7 +26,7 @@ export interface TextProps extends HTMLAttributes<HTMLSpanElement> {
    */
   align?: 'inherit' | 'left' | 'right' | 'center';
   /**
-   * @default `colors.greyDarkest`
+   * @default `colors.greyDark`
    */
   color?: string;
 }

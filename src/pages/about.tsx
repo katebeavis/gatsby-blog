@@ -6,9 +6,10 @@ import Layout from '../components/Layout/Layout';
 
 const About = ({ data }: any) => (
   <Layout>
-    <div style={{ color: `teal` }}>
-      <Heading as='h1'>About {data.site.siteMetadata.title}</Heading>
-      <p>Such wow. Very React.</p>
+    <div>
+      <Heading as='h3' weight='extraLight'>
+        About {data.site.siteMetadata.title}
+      </Heading>
     </div>
   </Layout>
 );
