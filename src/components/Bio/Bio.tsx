@@ -5,12 +5,11 @@ import Heading from '../Heading/Heading';
 
 const BioContainer = styled.aside`
   display: flex;
-  margin-bottom: 3rem;
   max-width: 776px;
 `;
 
 const Bio = () => (
-  <BioContainer>
+  <BioContainer className='mb-24'>
     <Heading as='h3' weight='extraLight'>
       Written by <strong>Kate</strong> who lives and works in London and likes
       to build stuff. Follow me on

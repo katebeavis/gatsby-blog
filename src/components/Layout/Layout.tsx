@@ -60,8 +60,8 @@ const Layout = ({ children }: any) => {
       <GlobalStyle theme='light' />
       <Container>
         <Nav />
-        <Main className='mt-8'>
-          <header className='my-8'>
+        <Main className='mt-20'>
+          <header className='mt-12 mb-8'>
             <Heading as='h1'>
               <SLink to='/'>{data.site.siteMetadata.title}</SLink>
             </Heading>
