@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Header from '../components/Header/Header';
+import Heading from '../components/Heading/Heading';
 import Layout from '../components/Layout/Layout';
 
 const About = ({ data }: any) => (
   <Layout>
     <div style={{ color: `teal` }}>
-      <Header headerText={`About ${data.site.siteMetadata.title}`} />
+      <Heading as='h1'>About {data.site.siteMetadata.title}</Heading>
       <p>Such wow. Very React.</p>
     </div>
   </Layout>
