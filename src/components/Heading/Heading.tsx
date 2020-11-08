@@ -1,11 +1,13 @@
+import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { theme } from '../../assets/styles/index.style';
+
 import typography from '../../constants/typography';
 import { LARGE } from '../../constants/breakpoints';
 
 type HeadingTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
 
-export interface StyledHeadingProps {
+export interface StyledHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    */
   as: HeadingTags;
@@ -14,9 +16,9 @@ export interface StyledHeadingProps {
    */
   size?: string;
   /**
-   * @default `colors.greyDarkest`
+   * @default `colors.greyDark`
    */
-  weight?: string;
+  weight?: 'thin' | 'extraLight' | 'light' | 'regular' | 'bold' | 'semiBold';
   /**
    * @default `colors.greyDarkest`
    */
@@ -50,12 +52,21 @@ const Heading = styled.h1<StyledHeadingProps>`
       letter-spacing: ${letterSpacingMap[tag]};
     `;
   }};
-  margin: 0;
   color: ${({ color = theme.greyDark }) => color};
   display: ${({ as }) => (as === 'span' ? 'block' : undefined)};
   text-align: ${({ align = 'inherit' }) => align};
-  font-family: ${typography.primary};
+  font-family: ${({ as }) =>
+    as === 'h3' ? typography.secondary : typography.primary};
   font-weight: ${({ weight = 'regular' }) => typography.weights[weight]};
+
+  ${({ className = '' }) =>
+    className
+      .split(' ')
+      .some((clss) => /[mp](:[mp])?[tblrxy]?-\d+/.test(clss)) &&
+    `
+    display: block
+  `}
+
   ${({ as, size }) =>
     as === 'h1' &&
     size === 'display' &&

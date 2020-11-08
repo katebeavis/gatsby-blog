@@ -9,7 +9,9 @@ const NavContainer = styled.nav``;
 const NavLink = styled(Link)`
   float: right;
   text-decoration: none;
+  font-size: 1.1em;
   color: ${theme.grey};
+  font-weight: 300;
   &:hover {
     border-bottom: 1px solid ${theme.grey};
   }

@@ -1,22 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import { Date, Divider, Tag, SLink, theme } from '../assets/styles/index.style';
+
 import Layout from '../components/Layout/Layout';
 import Bio from '../components/Bio/Bio';
-import {
-  BlogCard,
-  Date,
-  Divider,
-  Tag,
-  Header3,
-  SLink,
-} from '../assets/styles/index.style';
+import Heading from '../components/Heading/Heading';
+import Text from '../components/Text/Text';
 
 const Pages = ({ data }: any) => (
   <Layout>
     <Bio />
     {data.allMarkdownRemark.edges.map(({ node }: any) => (
-      <BlogCard key={node.id}>
+      <div className='mb-10' key={node.id}>
         <Date>{node.frontmatter.date}</Date>
         <Divider />
         {node.frontmatter.tags.map((tag: string, index: number) => (
@@ -25,12 +21,12 @@ const Pages = ({ data }: any) => (
             <Divider />
           </span>
         ))}
-        <Header3>
-          <SLink to={node.fields.slug}>{node.frontmatter.title}</SLink>
-        </Header3>
-        <p>{node.excerpt}</p>
+        <Heading as='h4' className='my-1' color={theme.grey}>
+          {node.frontmatter.title}
+        </Heading>
+        <Text>{node.excerpt}</Text>
         <SLink to={node.fields.slug}>Read</SLink>
-      </BlogCard>
+      </div>
     ))}
   </Layout>
 );

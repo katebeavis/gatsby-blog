@@ -13,7 +13,7 @@ const BioContainer = styled.aside`
 
 const Bio = () => (
   <BioContainer>
-    <Heading as='h3' color={theme.grey} weight='light'>
+    <Heading as='h3' color={theme.grey} weight='extraLight'>
       Written by <strong>Kate</strong> who lives and works in London and likes
       to build stuff. Follow me on
       <strong>

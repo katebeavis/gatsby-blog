@@ -1,10 +1,11 @@
 const typography = {
   primary: `"Open Sans", Roboto, Helvetica, Arial, sans-serif`,
+  secondary: `"Roboto Slab", serif`,
   sizes: {
     text: {
-      lead: '18px',
-      body: '15px',
-      small: '13px',
+      lead: '20px',
+      body: '18px',
+      small: '15px',
     },
     heading: {
       display: '68px',
@@ -23,12 +24,14 @@ const typography = {
       h4: '32px',
       h5: '26px',
       h6: '20px',
-      lead: '26px',
-      body: '22px',
-      small: '18px',
+      lead: '34px',
+      body: '32px',
+      small: '22px',
     },
   },
   weights: {
+    thin: 100,
+    extraLight: 200,
     light: 300,
     regular: 400,
     semiBold: 600,

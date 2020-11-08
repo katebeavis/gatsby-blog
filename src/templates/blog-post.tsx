@@ -1,16 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Header from '../components/Header/Header';
+import { Date, theme } from '../assets/styles/index.style';
+
+import Heading from '../components/Heading/Heading';
 import Layout from '../components/Layout/Layout';
-import { Date } from '../assets/styles/index.style';
 
 const BlogPost = ({ data }: any) => {
   const post = data.markdownRemark;
   return (
     <Layout>
       <div>
-        <Header headerText={post.frontmatter.title} />
+        <Heading as='h3' color={theme.grey}>
+          {post.frontmatter.title}
+        </Heading>
         <p>{post.frontmatter.excerpt}</p>
         <Date>
           {post.frontmatter.date} {post.frontmatter.readTime}

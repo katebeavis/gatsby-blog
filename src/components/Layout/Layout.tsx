@@ -12,6 +12,7 @@ import Heading from '../Heading/Heading';
 
 const Main = styled.main`
   flex-grow: 1;
+  max-width: 776px;
 `;
 
 const Container = styled.div`
@@ -51,6 +52,10 @@ const Layout = ({ children }: any) => {
         <meta charSet='utf-8' />
         <title>{data.site.siteMetadata.title}</title>
         <link rel='canonical' href={data.site.siteMetadata.title} />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700&display=swap'
+          rel='stylesheet'
+        />
       </Helmet>
       <GlobalStyle theme='light' />
       <Container>
