@@ -4,10 +4,7 @@ import { Link } from 'gatsby';
 
 import { theme } from '../../assets/styles/index.style';
 
-const NavContainer = styled.nav``;
-
 const NavLink = styled(Link)`
-  float: right;
   text-decoration: none;
   font-size: 1.1em;
   color: ${theme.grey};
@@ -18,14 +15,21 @@ const NavLink = styled(Link)`
 `;
 
 const Nav = () => (
-  <NavContainer className='my-4'>
-    <NavLink className='mr-4' to='/about/'>
-      About
-    </NavLink>
-    <NavLink className='mr-4' to='/garden/'>
-      Garden
-    </NavLink>
-  </NavContainer>
+  <nav className='my-4 flex'>
+    <div className='flex-1'>
+      <NavLink className='mr-4' to='/'>
+        Home
+      </NavLink>
+    </div>
+    <div>
+      <NavLink className='mr-4' to='/garden/'>
+        Garden
+      </NavLink>
+      <NavLink className='mr-4' to='/about/'>
+        About
+      </NavLink>
+    </div>
+  </nav>
 );
 
 export default Nav;

@@ -4,6 +4,8 @@ import { Link } from 'gatsby';
 export const theme = {
   greyDark: '#363441',
   grey: '#4A545E',
+  greyLight: '#D4D7D9',
+  greyLighter: '#EFEFEF',
   offWhite: '#EDEDED',
   tagColour: '#1e90ff',
 };
@@ -20,12 +22,8 @@ export const GlobalStyle = createGlobalStyle`
 
 export const SLink = styled(Link)`
   text-decoration: none;
-  font-size: 1.1em;
-  color: ${theme.grey};
-  font-weight: 300;
-  &:hover {
-    border-bottom: 1px solid ${theme.grey};
-  }
+  color: ${theme.greyDark};
+  font-weight: 400;
 `;
 
 export const Date = styled.time`

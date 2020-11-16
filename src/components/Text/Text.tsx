@@ -35,8 +35,7 @@ const {
   sizes: { lineHeight: lineHeightMap },
 } = typography;
 
-const Text = styled.span<TextProps>`
-  margin: 0;
+const Text = styled.p<TextProps>`
   letter-spacing: 0;
   color: ${({ color = theme.grey }) => color};
   font-size: ${({ size = 'body', capitalize }) =>

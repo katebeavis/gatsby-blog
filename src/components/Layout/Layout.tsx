@@ -1,18 +1,17 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import { theme, GlobalStyle } from '../../assets/styles/index.style';
+import { GlobalStyle } from '../../assets/styles/index.style';
 import { SMALL } from '../../constants/breakpoints';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-import Heading from '../Heading/Heading';
 
 const Main = styled.main`
   flex-grow: 1;
-  max-width: 776px;
+  max-width: 992px;
 `;
 
 const Container = styled.div`
@@ -25,12 +24,6 @@ const Container = styled.div`
   @media screen and (min-width: ${SMALL}) {
     padding: 0;
   }
-`;
-
-const SLink = styled(Link)`
-  text-decoration: none;
-  color: ${theme.greyDark};
-  font-weight: 700;
 `;
 
 const Layout = ({ children }: any) => {
@@ -60,14 +53,7 @@ const Layout = ({ children }: any) => {
       <GlobalStyle theme='light' />
       <Container>
         <Nav />
-        <Main className='mt-20'>
-          <header className='mt-12 mb-8'>
-            <Heading as='h1'>
-              <SLink to='/'>{data.site.siteMetadata.title}</SLink>
-            </Heading>
-          </header>
-          {children}
-        </Main>
+        <Main className='mt-20'>{children}</Main>
         <Footer />
       </Container>
     </>

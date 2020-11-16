@@ -4,6 +4,7 @@ date: '2017-01-15'
 tags: ['ruby', 'rails', 'testing']
 excerpt: 'A guide to setting up the VCR gem in Rails to test HTTP requests.'
 readTime: '4 minutes'
+type: 'blog'
 ---
 
 Recently I was working on a [project](https://github.com/katebeavis/pr-hero/) that relied heavily on the Github API which meant that when I was running tests, I was hitting the API every time. Now for authenticated requests, the rate limit was set at 5,000 hits per hour - I am a believer in testing as much as you can, but I don’t think even I could hit that limit!

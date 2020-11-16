@@ -4,13 +4,11 @@ import { graphql } from 'gatsby';
 import Heading from '../components/Heading/Heading';
 import Layout from '../components/Layout/Layout';
 
-const About = ({ data }: any) => (
+const About = () => (
   <Layout>
-    <div>
-      <Heading as='h3' weight='extraLight'>
-        About {data.site.siteMetadata.title}
-      </Heading>
-    </div>
+    <header className='mt-12 mb-8'>
+      <Heading as='h1'>About</Heading>
+    </header>
   </Layout>
 );
 

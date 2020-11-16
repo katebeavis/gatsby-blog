@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug
+      value: slug,
     });
   }
 };
@@ -36,8 +36,37 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.fields.slug
-      }
+        slug: node.fields.slug,
+      },
     });
   });
 };
+
+// exports.createGarden = async ({ graphql, actions }) => {
+//   const { createGarden } = actions;
+//   const result = await graphql(`
+//     query {
+//       allMarkdownRemark {
+//         edges {
+//           node {
+//             fields {
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `);
+
+//   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//     createGarden({
+//       path: node.fields.slug,
+//       component: path.resolve(`./src/templates/garden-post.tsx`),
+//       context: {
+//         // Data passed to context is available
+//         // in page queries as GraphQL variables.
+//         slug: node.fields.slug,
+//       },
+//     });
+//   });
+// };
