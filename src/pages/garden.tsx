@@ -85,7 +85,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "MMMM YYYY")
+            lastUpdated(formatString: "MMMM YYYY")
             topics
           }
           fields {

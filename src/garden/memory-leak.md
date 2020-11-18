@@ -1,0 +1,10 @@
+---
+title: 'Memory leak'
+lastUpdated: '2020-11-18'
+topics: ['engineering']
+type: 'note'
+---
+
+When memory is allocated but not deallocated when it is no longer needed
+
+It blocks memory resouces and degrades system performance over time

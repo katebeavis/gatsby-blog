@@ -5,6 +5,7 @@ import { Date } from '../assets/styles/index.style';
 
 import Heading from '../components/Heading/Heading';
 import Layout from '../components/Layout/Layout';
+import Text from '../components/Text/Text';
 
 const BlogPost = ({ data }: any) => {
   const post = data.markdownRemark;
@@ -12,7 +13,7 @@ const BlogPost = ({ data }: any) => {
     <Layout>
       <div>
         <Heading as='h3'>{post.frontmatter.title}</Heading>
-        <p>{post.frontmatter.excerpt}</p>
+        <Text>{post.frontmatter.excerpt}</Text>
         <Date>
           {post.frontmatter.date} {post.frontmatter.readTime}
         </Date>
