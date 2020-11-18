@@ -1,7 +1,7 @@
 ---
 title: 'History of the London Underground'
 date: '2017-08-21'
-tags: ['tube', 'london']
+topics: ['tube', 'london']
 type: 'note'
 ---
 
