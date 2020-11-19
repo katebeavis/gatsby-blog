@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import renderHtmlToReact from '../utils/html';
+
 import { Date } from '../assets/styles/index.style';
 
 import Heading from '../components/Heading/Heading';
@@ -17,7 +19,7 @@ const BlogPost = ({ data }: any) => {
         <Date>
           {post.frontmatter.date} {post.frontmatter.readTime}
         </Date>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div>{renderHtmlToReact(post.htmlAst)}</div>
       </div>
     </Layout>
   );
@@ -27,6 +29,7 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      htmlAst
       frontmatter {
         title
         date(formatString: "MMMM YYYY")
