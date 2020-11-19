@@ -25,7 +25,7 @@ module.exports = {
         path: `${__dirname}/src/garden`,
       },
     },
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,

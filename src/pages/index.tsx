@@ -27,11 +27,11 @@ const Pages = ({ data }: any) => (
       </Heading>
     </header>
     <Bio />
-    {data.allMarkdownRemark.edges.map(({ node }: any) => (
+    {data.allMdx.edges.map(({ node }: any) => (
       <div className='mb-10' key={node.id}>
         <Date>{node.frontmatter.date}</Date>
         <Divider />
-        {node.frontmatter.tags.map((tag: string, index: number) => (
+        {node.frontmatter.topics.map((tag: string, index: number) => (
           <span key={index}>
             <Tag>{tag}</Tag>
             <Divider />
@@ -49,7 +49,7 @@ const Pages = ({ data }: any) => (
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: "blog" } } }
     ) {
@@ -60,7 +60,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "MMMM YYYY")
-            tags
+            topics
             type
           }
           fields {

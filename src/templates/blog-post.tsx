@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-
-import renderHtmlToReact from '../utils/html';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { Date } from '../assets/styles/index.style';
 
@@ -10,7 +9,7 @@ import Layout from '../components/Layout/Layout';
 import Text from '../components/Text/Text';
 
 const BlogPost = ({ data }: any) => {
-  const post = data.markdownRemark;
+  const post = data.mdx;
   return (
     <Layout>
       <div>
@@ -19,7 +18,7 @@ const BlogPost = ({ data }: any) => {
         <Date>
           {post.frontmatter.date} {post.frontmatter.readTime}
         </Date>
-        <div>{renderHtmlToReact(post.htmlAst)}</div>
+        <MDXRenderer>{post.body}</MDXRenderer>
       </div>
     </Layout>
   );
@@ -27,9 +26,8 @@ const BlogPost = ({ data }: any) => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      htmlAst
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         date(formatString: "MMMM YYYY")

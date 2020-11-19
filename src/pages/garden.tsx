@@ -41,7 +41,7 @@ const Garden = ({ data }: any) => {
   const uniq = (arr: any) =>
     arr.filter((x: any, i: any, a: any) => a.indexOf(x) === i);
 
-  const topics: string[] = data.allMarkdownRemark.edges.reduce(
+  const topics: string[] = data.allMdx.edges.reduce(
     (a: any, c: any): string[] => {
       console.log(a.includes(c.node.frontmatter.topics));
       return uniq([...a, ...c.node.frontmatter.topics]);
@@ -59,7 +59,7 @@ const Garden = ({ data }: any) => {
         <Topic className='p-2 mr-2 mb-2'>{topic}</Topic>
       ))}
       <NoteContainer className='my-12'>
-        {data.allMarkdownRemark.edges.map(({ node }: any) => (
+        {data.allMdx.edges.map(({ node }: any) => (
           <Link to={node.fields.slug} key={node.id}>
             <Note className='p-4 mr-4 mb-4'>
               <Heading as='h5' className='mb-4'>
@@ -75,7 +75,7 @@ const Garden = ({ data }: any) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: "note" } } }
     ) {
