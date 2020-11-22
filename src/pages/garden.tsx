@@ -28,38 +28,27 @@ const Note = styled.div`
   }
 `;
 
-const Topic = styled.div`
-  display: inline-block;
-  border: 1px solid ${theme.greyLighter};
-  border-radius: 6px;
-  box-shadow: 0px 1px 0px 0px ${theme.greyLight};
-  transition: all 400ms ease-in-out;
-  &:hover {
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
-    box-shadow: 0 10px 30px -10px ${theme.greyLight};
-    cursor: pointer;
-  }
-`;
-
 const Garden = ({ data }: any) => {
-  const [activeTopics, setActiveTopics] = useState<string[]>(
-    getTopics(data.allMdx.edges)
-  );
+  const [activeTopics, setActiveTopics] = useState<string[]>([]);
 
   const allTopics = getTopics(data.allMdx.edges);
 
-  const handleClick = (topic: string) => {
-    console.log(topic);
-    setActiveTopics([topic]);
-  };
+  const handleClick = (topic: string) =>
+    activeTopics.includes(topic)
+      ? setActiveTopics(
+          activeTopics.filter((activeTopic: string) => activeTopic !== topic)
+        )
+      : setActiveTopics([topic, ...activeTopics]);
 
   const allPosts = data.allMdx.edges;
 
-  const postsToDisplay = allPosts.filter(({ node }: any) =>
-    node.frontmatter.topics.find((topic: string) =>
-      activeTopics.includes(topic)
-    )
-  );
+  const postsToDisplay = !activeTopics.length
+    ? allPosts
+    : allPosts.filter(({ node }: any) =>
+        node.frontmatter.topics.find((topic: string) =>
+          activeTopics.includes(topic)
+        )
+      );
 
   return (
     <Layout>
@@ -67,13 +56,42 @@ const Garden = ({ data }: any) => {
         <Heading as='h1'>Digital garden</Heading>
       </header>
       {allTopics.map((topic: any, index: number) => (
-        <Topic
+        <button
+          css={`
+            display: inline-block;
+            border: 1px solid ${theme.greyLighter};
+            border-radius: 6px;
+            box-shadow: ${activeTopics.includes(topic)
+              ? 'none'
+              : `0px 1px 0px 0px ${theme.greyLight}`};
+            transition: all 400ms ease-in-out;
+            background-color: ${activeTopics.includes(topic)
+              ? `${theme.greyDark}`
+              : 'inherit'};
+            text-transform: capitalize;
+            &:hover {
+              transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+              box-shadow: 0 10px 30px -10px ${theme.greyLight};
+              border: 1px solid ${theme.greyDark};
+              cursor: pointer;
+            }
+          `}
           key={index}
           className='p-2 mr-2 mb-2'
           onClick={() => handleClick(topic)}
+          onKeyDown={() => handleClick(topic)}
+          type='button'
         >
-          <Text>{topic}</Text>
-        </Topic>
+          <Text
+            css={`
+              color: ${activeTopics.includes(topic)
+                ? 'white'
+                : `${theme.greyDark}`};
+            `}
+          >
+            {topic}
+          </Text>
+        </button>
       ))}
       <NoteContainer className='my-12'>
         {postsToDisplay.map(({ node }: any) => (
