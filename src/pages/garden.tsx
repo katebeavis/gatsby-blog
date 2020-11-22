@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
 import { theme } from '../assets/styles/index.style';
 
+import { getTopics } from '../utils/getTopics';
+
 import Heading from '../components/Heading/Heading';
 import Layout from '../components/Layout/Layout';
+import Text from '../components/Text/Text';
 
 const NoteContainer = styled.div`
   display: flex;
@@ -34,34 +37,46 @@ const Topic = styled.div`
   &:hover {
     transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
     box-shadow: 0 10px 30px -10px ${theme.greyLight};
+    cursor: pointer;
   }
 `;
 
 const Garden = ({ data }: any) => {
-  const uniq = (arr: any) =>
-    arr.filter((x: any, i: any, a: any) => a.indexOf(x) === i);
-
-  const topics: string[] = data.allMdx.edges.reduce(
-    (a: any, c: any): string[] => {
-      console.log(a.includes(c.node.frontmatter.topics));
-      return uniq([...a, ...c.node.frontmatter.topics]);
-    },
-    []
+  const [activeTopics, setActiveTopics] = useState<string[]>(
+    getTopics(data.allMdx.edges)
   );
-  console.log({ topics });
+
+  const allTopics = getTopics(data.allMdx.edges);
+
+  const handleClick = (topic: string) => {
+    console.log(topic);
+    setActiveTopics([topic]);
+  };
+
+  const allPosts = data.allMdx.edges;
+
+  const postsToDisplay = allPosts.filter(({ node }: any) =>
+    node.frontmatter.topics.find((topic: string) =>
+      activeTopics.includes(topic)
+    )
+  );
 
   return (
     <Layout>
       <header className='my-12'>
         <Heading as='h1'>Digital garden</Heading>
       </header>
-      {topics.map((topic: any, index: number) => (
-        <Topic key={index} className='p-2 mr-2 mb-2'>
-          {topic}
+      {allTopics.map((topic: any, index: number) => (
+        <Topic
+          key={index}
+          className='p-2 mr-2 mb-2'
+          onClick={() => handleClick(topic)}
+        >
+          <Text>{topic}</Text>
         </Topic>
       ))}
       <NoteContainer className='my-12'>
-        {data.allMdx.edges.map(({ node }: any) => (
+        {postsToDisplay.map(({ node }: any) => (
           <Link to={node.fields.slug} key={node.id}>
             <Note className='p-4 mr-4 mb-4'>
               <Heading as='h5' className='mb-4'>
@@ -95,11 +110,6 @@ export const query = graphql`
           }
           excerpt
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
       }
     }
   }
