@@ -55,8 +55,10 @@ const Garden = ({ data }: any) => {
       <header className='my-12'>
         <Heading as='h1'>Digital garden</Heading>
       </header>
-      {topics.map((topic: any) => (
-        <Topic className='p-2 mr-2 mb-2'>{topic}</Topic>
+      {topics.map((topic: any, index: number) => (
+        <Topic key={index} className='p-2 mr-2 mb-2'>
+          {topic}
+        </Topic>
       ))}
       <NoteContainer className='my-12'>
         {data.allMdx.edges.map(({ node }: any) => (
@@ -76,7 +78,7 @@ const Garden = ({ data }: any) => {
 export const query = graphql`
   query {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___lastUpdated], order: DESC }
       filter: { frontmatter: { type: { eq: "note" } } }
     ) {
       totalCount

@@ -1,6 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { Link } from 'gatsby';
 
+import typography from '../../constants/typography';
+
 export const theme = {
   greyDark: '#363441',
   grey: '#4A545E',
@@ -27,9 +29,9 @@ export const SLink = styled(Link)`
 `;
 
 export const Date = styled.time`
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-family: ${typography.primary};
+  font-size: ${typography.sizes.text.body};
+  font-weight: ${typography.weights.thin};
   color: ${theme.grey};
 `;
 

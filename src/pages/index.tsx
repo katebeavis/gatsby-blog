@@ -10,7 +10,7 @@ import Heading from '../components/Heading/Heading';
 import Text from '../components/Text/Text';
 
 const ReadMoreLink = styled(Link)`
-  text-decoration: underline;
+  text-decoration: none;
   font-size: 1.1em;
   color: ${theme.grey};
   font-weight: 400;
@@ -29,7 +29,7 @@ const Pages = ({ data }: any) => (
     <Bio />
     {data.allMdx.edges.map(({ node }: any) => (
       <div className='mb-10' key={node.id}>
-        <Date>{node.frontmatter.date}</Date>
+        <Date>{node.frontmatter.lastUpdated}</Date>
         <Divider />
         {node.frontmatter.topics.map((tag: string, index: number) => (
           <span key={index}>
@@ -50,7 +50,7 @@ const Pages = ({ data }: any) => (
 export const query = graphql`
   query {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___lastUpdated], order: DESC }
       filter: { frontmatter: { type: { eq: "blog" } } }
     ) {
       totalCount
@@ -59,7 +59,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "MMMM YYYY")
+            lastUpdated(formatString: "MMMM YYYY")
             topics
             type
           }

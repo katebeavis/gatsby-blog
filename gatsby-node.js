@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.tsx`),
+      component: path.resolve(`./src/templates/post.tsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
@@ -41,32 +41,3 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
-
-// exports.createGarden = async ({ graphql, actions }) => {
-//   const { createGarden } = actions;
-//   const result = await graphql(`
-//     query {
-//       allMdx {
-//         edges {
-//           node {
-//             fields {
-//               slug
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
-
-//   result.data.allMdx.edges.forEach(({ node }) => {
-//     createGarden({
-//       path: node.fields.slug,
-//       component: path.resolve(`./src/templates/garden-post.tsx`),
-//       context: {
-//         // Data passed to context is available
-//         // in page queries as GraphQL variables.
-//         slug: node.fields.slug,
-//       },
-//     });
-//   });
-// };

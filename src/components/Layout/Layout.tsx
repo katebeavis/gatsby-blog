@@ -11,12 +11,12 @@ import Footer from '../Footer/Footer';
 
 const Main = styled.main`
   flex-grow: 1;
-  max-width: 992px;
 `;
 
 const Container = styled.div`
   margin: 0 auto;
   max-width: 1024px;
+  padding: 0 10px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
