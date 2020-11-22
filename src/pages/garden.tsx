@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { theme } from '../assets/styles/index.style';
 
 import { getTopics } from '../utils/getTopics';
+import { Node } from '../utils/types';
 
 import Heading from '../components/Heading/Heading';
 import Layout from '../components/Layout/Layout';
@@ -44,7 +45,7 @@ const Garden = ({ data }: any) => {
 
   const postsToDisplay = !activeTopics.length
     ? allPosts
-    : allPosts.filter(({ node }: any) =>
+    : allPosts.filter(({ node }: Node) =>
         node.frontmatter.topics.find((topic: string) =>
           activeTopics.includes(topic)
         )
@@ -94,7 +95,7 @@ const Garden = ({ data }: any) => {
         </button>
       ))}
       <NoteContainer className='my-12'>
-        {postsToDisplay.map(({ node }: any) => (
+        {postsToDisplay.map(({ node }: Node) => (
           <Link to={node.fields.slug} key={node.id}>
             <Note className='p-4 mr-4 mb-4'>
               <Heading as='h5' className='mb-4'>

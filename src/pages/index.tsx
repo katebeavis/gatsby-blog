@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { Date, Divider, Tag, theme, SLink } from '../assets/styles/index.style';
 
+import { Node } from '../utils/types';
+
 import Layout from '../components/Layout/Layout';
 import Bio from '../components/Bio/Bio';
 import Heading from '../components/Heading/Heading';
@@ -27,7 +29,7 @@ const Pages = ({ data }: any) => (
       </Heading>
     </header>
     <Bio />
-    {data.allMdx.edges.map(({ node }: any) => (
+    {data.allMdx.edges.map(({ node }: Node) => (
       <div className='mb-10' key={node.id}>
         <Date>{node.frontmatter.lastUpdated}</Date>
         <Divider />

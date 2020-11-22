@@ -1,5 +1,5 @@
-const uniq = (arr: any) =>
-  arr.filter((x: any, i: any, a: any) => a.indexOf(x) === i);
+const uniq = (arr: string[]) =>
+  arr.filter((x: string, i: number, a: string[]) => a.indexOf(x) === i);
 
 export const getTopics = (allTopics: string[]) =>
   allTopics.reduce(
