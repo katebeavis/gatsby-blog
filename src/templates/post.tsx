@@ -1,7 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { navigate } from '@reach/router';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
+import styled from 'styled-components';
 
 import { Date, theme } from '../assets/styles/index.style';
 import typography from '../constants/typography';
@@ -11,6 +13,15 @@ import Layout from '../components/Layout/Layout';
 import Text from '../components/Text/Text';
 
 const borderBottom = `1px solid ${theme.greyLight}`;
+
+const BackLink = styled.a`
+  text-decoration: underline;
+  color: ${theme.greyDark};
+  font-weight: 400;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 /* eslint-disable */
 const shortcodes = {
@@ -71,6 +82,7 @@ function Post({ data }: any) {
   return (
     <Layout>
       <div style={{ margin: '0 auto', maxWidth: '840px' }}>
+        <BackLink onClick={() => navigate(-1)}>{'<< Back'}</BackLink>
         <Heading as='h1' style={{ lineHeight: '1.2em' }}>
           {post.frontmatter.title}
         </Heading>
